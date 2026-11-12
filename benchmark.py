@@ -53,7 +53,8 @@ def tradeoff(mode="flood"):
     ax.set_title(f"Trade-off curve found by QAOA ({mode})")
     ax.grid(alpha=.3)
     fig.tight_layout()
-    fig.savefig(f"results/tradeoff_{mode}.png", dpi=150)
+    if mode == "flood":
+        fig.savefig(f"results/tradeoff_{mode}.png", dpi=150)
     plt.close(fig)
     return rows
 
@@ -96,19 +97,10 @@ def warm_vs_cold(mode="flood", n_events=8):
     ax.legend()
     ax.grid(alpha=.3)
     fig.tight_layout()
-    fig.savefig(f"results/warm_vs_cold_{mode}.png", dpi=150)
+    if mode == "flood":
+        fig.savefig(f"results/warm_vs_cold_{mode}.png", dpi=150)
     plt.close(fig)
 
-    w = [r["warm_evals_to_95pct"] for r in out]
-    c = [r["cold_evals_to_95pct"] for r in out]
-    fig, ax = plt.subplots(figsize=(6, 4))
-    ax.bar(["cold start", "warm start"], [np.mean(c), np.mean(w)],
-           yerr=[np.std(c), np.std(w)], color=["#888", "#d62728"], capsize=6)
-    ax.set_ylabel("Evaluations to reach 95% of best energy")
-    ax.set_title(f"Warm vs cold start over {n_events} events ({mode})")
-    fig.tight_layout()
-    fig.savefig(f"results/warm_vs_cold_bar_{mode}.png", dpi=150)
-    plt.close(fig)
     return out
 
 
