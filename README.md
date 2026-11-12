@@ -42,6 +42,7 @@ On a noise model of IBM's Torino processor, the 6-qubit problem still found the 
 pip install -r requirements.txt
 streamlit run app.py                        # the demo
 python benchmark.py                         # regenerates results/ (about 2.5 min)
+pip install -r requirements-hardware.txt    # only for the IBM scripts below
 python run_on_ibm.py --mode border --fake   # IBM device noise model, no account needed
 python run_on_ibm.py --mode border          # real IBM hardware (setup notes at top of the file)
 ```
