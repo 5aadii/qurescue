@@ -1,0 +1,10 @@
+{
+  "backend": "FakeTorino (noisy simulation of IBM Torino)",
+  "qubits": 6,
+  "depth": 36,
+  "p_opt_hw": 0.02575,
+  "p_opt_sim": 0.027,
+  "p_random": 0.015625,
+  "p_feasible_hw": 0.829,
+  "found_optimum": true
+}
