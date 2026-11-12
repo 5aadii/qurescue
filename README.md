@@ -6,7 +6,7 @@ When a flood hits, a relief camp gets more calls than it has drones. An injured 
 
 QuRescue turns that decision into a QUBO and solves it with QAOA in Qiskit. When the situation changes (the water rises, an aftershock hits), it re-plans by starting QAOA from the last plan's angles instead of from scratch.
 
-Built for the FAST Quantum Fall Fest 2026 hackathon · Domain: **Disaster Response**
+**Live demo: [qurescue.streamlit.app](https://qurescue.streamlit.app/)** · Built for the FAST Quantum Fall Fest 2026 hackathon · Domain: **Disaster Response**
 
 ![QuRescue demo](docs/demo.png)
 

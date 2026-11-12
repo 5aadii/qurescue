@@ -39,7 +39,7 @@ def _build(model, reps):
 
 
 def qaoa(model: QuboModel, reps=2, init_params=None, seed=0, maxiter=200, shots=4096,
-         optimum_cost=None):
+         optimum_cost=None, rhobeg=None):
     """Run QAOA on a local statevector simulator.
     init_params=None -> cold start (random angles). Otherwise -> warm start
     (parameter transfer: reuse optimised angles from the previous, similar problem)."""
@@ -61,7 +61,7 @@ def qaoa(model: QuboModel, reps=2, init_params=None, seed=0, maxiter=200, shots=
         mode = "warm"
 
     t0 = time.time()
-    res = minimize(energy, x0, method="COBYLA", options={"maxiter": maxiter, "rhobeg": 0.4})
+    res = minimize(energy, x0, method="COBYLA", options={"maxiter": maxiter, "rhobeg": rhobeg or 0.4})
     runtime = time.time() - t0
 
     meas = ansatz.measure_all(inplace=False)
